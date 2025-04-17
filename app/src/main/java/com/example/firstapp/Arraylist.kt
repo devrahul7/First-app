@@ -25,5 +25,4 @@ fun main(args:Array<String>) {
     age1.add(1)
     age1.add(5)
 
-    var age2 = arrayListOf()
 }

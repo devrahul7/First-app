@@ -1,4 +1,4 @@
-com.example.myapplication
+com.example.firstapp
 attr alpha
 attr font
 attr fontProviderAuthority
@@ -53,7 +53,11 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+drawable bankcard
+drawable baseline_address_24
+drawable baseline_menu_book_24
 drawable baseline_more_horiz_24
+drawable character
 drawable ic_call_answer
 drawable ic_call_answer_low
 drawable ic_call_answer_video
@@ -62,6 +66,8 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable key
+drawable logistics
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -76,6 +82,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable people
+drawable settings
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -274,7 +281,7 @@ style TextAppearance_Compat_Notification_Info
 style TextAppearance_Compat_Notification_Line2
 style TextAppearance_Compat_Notification_Time
 style TextAppearance_Compat_Notification_Title
-style Theme_MyApplication
+style Theme_firstapp
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
 styleable Capability queryPatterns shortcutMatchRequired

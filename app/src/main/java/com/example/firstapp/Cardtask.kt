@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -23,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -44,7 +46,7 @@ class CardTask : ComponentActivity() {
 fun CardApp() {
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = Color(0xFF673AB7) //  background color
+        color = Color(0xFF009688) // background color
     ) {
         Column(
             modifier = Modifier
@@ -52,20 +54,38 @@ fun CardApp() {
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // App Title
-            Text(
-                text = "Card",
-                color = Color.White,
-                fontSize = 32.sp,
-                modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
-            )
+            // Top bar with app title and profile icon
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 24.dp, bottom = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "Card",
+                    color = Color.White,
+                    fontSize = 32.sp
+                )
 
-            // Subtitle
+                // Profile icon
+                Image(
+                    painter = painterResource(id = R.drawable.people),
+                    contentDescription = "Profile",
+                    modifier = Modifier
+                        .size(80.dp)
+                        .clip(CircleShape)
+                )
+            }
+
+
             Text(
                 text = "Simple and easy to use app",
                 color = Color.White,
                 fontSize = 18.sp,
-                modifier = Modifier.padding(bottom = 32.dp)
+                modifier = Modifier
+                    .padding(bottom = 32.dp)
+                    .align(Alignment.Start) // Align to start to match your design
             )
 
             // First row of cards
@@ -157,31 +177,35 @@ fun CardItem(
             defaultElevation = 4.dp
         )
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            if (isFullWidth) {
-                // Horizontal layout for settings
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        painter = painterResource(id = iconResId),
-                        contentDescription = title,
-                        modifier = Modifier.size(32.dp)
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Text(
-                        text = title,
-                        fontSize = 18.sp
-                    )
-                }
-            } else {
-                // Vertical layout for other cards
+        if (isFullWidth) {
+
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Image(
+                    painter = painterResource(id = iconResId),
+                    contentDescription = title,
+                    modifier = Modifier.size(72.dp)
+                )
+                Spacer(modifier = Modifier.width(0.dp))
+                Text(
+                    text = title,
+                    fontSize = 23.sp
+                )
+            }
+        } else {
+            // Vertical layout for other cards
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
                 Image(
                     painter = painterResource(id = iconResId),
                     contentDescription = title,
@@ -197,7 +221,7 @@ fun CardItem(
         }
     }
 }
-//done
+
 @Preview(showBackground = true)
 @Composable
 fun CardAppPreview() {

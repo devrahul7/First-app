@@ -170,8 +170,8 @@ fun InstaClone(innerPadding: PaddingValues) {
                 fontWeight = FontWeight.Bold, color = Color.Red))
             Text("Artist", modifier = Modifier.alpha(alpha = 0.5f))
             Text("Designer")
-            Text("issbella@art.com")
-            Text("Followed by jeena and anna")
+            Text("sitaram@art.com")
+            Text("Followed by sita and ram")
         }
         Row (
             modifier = Modifier
